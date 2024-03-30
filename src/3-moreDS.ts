@@ -95,6 +95,65 @@ let unique = only_different_elements(set_1, set_2)
 console.log(Array.from(unique))
 console.log("This are the unique elements\n\n")
 
-function mumber_keys<T>(a_dictionary: {[key: string]: T}): number{
-    return 0
+function number_keys<T>(a_dictionary: {[key: string]: T}): number{
+    return Object.keys(a_dictionary).length
 }
+
+let a_dictionary = { 'language': "C", 'number': 13, 'track': "Low level" }
+let nb_keys = number_keys(a_dictionary)
+console.log(`The number of keys is: ${nb_keys}`)
+console.log("Getting the number of keys in a dict\n\n")
+
+function print_sorted_dictionary<T>(a_dictionary: {[key: string]: T}): void{
+    let Sorted_dict = Object.keys(a_dictionary).sort()
+
+    for(let key of Sorted_dict){
+        console.log(`${key}: ${a_dictionary[key]}`)
+    }
+}
+
+let b_dictionary = { 'language': "C", 'Number': 89, 'track': "Low level", 'ids': [1, 2, 3] }
+print_sorted_dictionary(b_dictionary)
+console.log("Sorting a dict with keys\n\n")
+
+function update_dictionary<T>(a_dictionary: {[key: string]: T}, key: string, value: T){
+    if (key in a_dictionary){
+        a_dictionary[key] = value
+    } else {
+
+    }
+    for (const elem in a_dictionary){
+        console.log(`${elem}: ${a_dictionary[elem]}`)
+    }
+}
+
+update_dictionary(b_dictionary, 'language', 'Typescript')
+console.log("Updating a dict with key\n\n")
+
+function simple_delete<T>(a_dictionary: {[key: string]: T}, key: string): void{
+    if (key in a_dictionary){
+        delete a_dictionary[key]
+    }
+}
+
+simple_delete(b_dictionary, "Number")
+console.log(b_dictionary)
+console.log("Using the delete keyword to delete k,v in dict\n\n")
+
+function multiply_by_2(a_dictionary: {[key: string]: number}): void{
+    let multiplied: {[k: string]: number} = {}
+    for (const idx in a_dictionary){
+        multiplied[idx] = a_dictionary[idx]*2
+    }
+    console.log(a_dictionary)
+    console.log(multiplied)
+}
+
+let c_dictionary = {'John': 12, 'Alex': 8, 'Bob': 14, 'Mike': 14, 'Molly': 16}
+multiply_by_2(c_dictionary)
+console.log("Multiplying the values of a dict\n\n")
+
+function best_score(a_dictionary: {[key: string]: number}){
+    return
+}
+
