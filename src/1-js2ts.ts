@@ -58,3 +58,16 @@ function moby(){
 }
 
 ExecFunc(5, moby)
+console.log("End of moby\n\n")
+
+function FuncIncre(val: number, func: (nb: number)=>number): number{
+    return func(val)
+}
+
+function addNumbyOne(val: number): number{
+    return val+1
+}
+
+console.log(FuncIncre(4, addNumbyOne))
+console.log("End of Increment val by func\n")
+
