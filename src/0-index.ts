@@ -213,4 +213,51 @@ if (result[0] === "success") {
 
 
 // interfaces - Defines objects type
+// json types exercise
+type primitive = number | string | boolean | null
 
+type JSONObject = {[k: string]: JSONValue}
+type JSONArray = primitive[]
+type JSONValue = primitive | JSONArray | JSONObject
+ 
+function isJSON(arg: JSONValue) {}
+ 
+isJSON("hello")
+isJSON([4, 8, 15, 16, 23, 42])
+isJSON({ greeting: "hello" })
+isJSON(false)
+isJSON(true)
+isJSON(null)
+isJSON({ a: { b: [2, 3, "foo"] } })
+
+/*
+ * functions
+ */
+//callable types
+interface TwoNumberCalculation {
+    (x: number, y: number): number
+}
+
+type calcTwoNumbers = (x:number, y:number) => number
+
+let a: number = 4
+let b: number = 2
+
+const adddition: TwoNumberCalculation = (a, b) => a + b
+
+const minus: calcTwoNumbers = (a, b) => a-b
+
+//classes && Access modifiers keyword
+class MyCar{
+    make: string
+    model: string
+    year: number
+
+    constructor(make: string, model: string, year: number){
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+}
+
+let sedan = new MyCar("mercedes", "s550", 2018)
