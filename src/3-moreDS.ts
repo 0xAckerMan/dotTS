@@ -177,3 +177,46 @@ my_list = [1, 2, 3, 4, 6]
 multiply_list_map(my_list, 4)
 console.log("multiply arr by number\n\n")
 
+function roman_to_int(roman_string: string): number{
+    if(typeof roman_string !== "string" || !roman_string){
+        return 0
+    }
+
+    let roman_values: {[key: string]: number} = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    }
+
+    let result: number = 0
+
+    for (let i = 0; i < roman_string.length; i++){
+        let current_value: number = roman_values[roman_string[i]]
+        let next_value: number = roman_values[roman_string[i+1]]
+
+        if (next_value && current_value < next_value){
+            result += next_value - current_value
+            i++
+        } else{
+            result += current_value
+        }
+    }
+
+    console.log(`The int of ${roman_string} is ${result}`)
+    return result
+}
+
+console.log(roman_to_int("III")); // Output: 3
+console.log(roman_to_int("IV")); // Output: 4
+console.log(roman_to_int("IX")); // Output: 9
+console.log(roman_to_int("LVIII")); // Output: 58
+console.log(roman_to_int("MCMXCIV")); // Output: 1994
+console.log(roman_to_int("")); // Output: 0
+
+console.log("Converting roman values to integers\n\n")
+
+
