@@ -166,7 +166,14 @@ function best_score(a_dictionary: {[key: string]: number}): void{
 }
 
 best_score(c_dictionary)
+console.log("Getting the key with high score\n\n")
 
- 
+function multiply_list_map(my_list: number[], num: number) :void{
+    let multiplied = my_list.map((value)=> value*num)
+    console.log(multiplied)
+}
 
+my_list = [1, 2, 3, 4, 6]
+multiply_list_map(my_list, 4)
+console.log("multiply arr by number\n\n")
 
