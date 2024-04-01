@@ -153,7 +153,20 @@ let c_dictionary = {'John': 12, 'Alex': 8, 'Bob': 14, 'Mike': 14, 'Molly': 16}
 multiply_by_2(c_dictionary)
 console.log("Multiplying the values of a dict\n\n")
 
-function best_score(a_dictionary: {[key: string]: number}){
-    return
+function best_score(a_dictionary: {[key: string]: number}): void{
+    let bestKey: string | null = null
+    let bestValue: number = Number.MIN_SAFE_INTEGER
+    for (const key in a_dictionary){
+        if(a_dictionary[key] > bestValue){
+            bestValue = a_dictionary[key]
+            bestKey= key
+        }
+    }
+    console.log(bestKey)
 }
+
+best_score(c_dictionary)
+
+ 
+
 
