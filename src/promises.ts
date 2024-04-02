@@ -88,7 +88,6 @@ function createUser() {
 
 }
 
-
 {
     async function handleProfileSignUp(): Promise<void>{
         try{
